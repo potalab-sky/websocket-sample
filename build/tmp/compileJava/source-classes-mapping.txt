@@ -1,4 +1,0 @@
-com/potalab/websocket/TextEndpoint.java
- com.potalab.websocket.TextEndpoint
-com/potalab/websocket/BinaryEndpoint.java
- com.potalab.websocket.BinaryEndpoint

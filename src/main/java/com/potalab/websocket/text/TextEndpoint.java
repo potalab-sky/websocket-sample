@@ -1,4 +1,4 @@
-package com.potalab.websocket;
+package com.potalab.websocket.text;
 
 import javax.websocket.OnMessage;
 import javax.websocket.server.ServerEndpoint;
