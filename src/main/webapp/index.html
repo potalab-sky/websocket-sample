@@ -7,15 +7,19 @@
             document.getElementById("text").onclick = showTextSample;
             document.getElementById("textObject").onclick = showTextObjectSample;
             document.getElementById("binary").onclick = showBinarySample;
+            document.getElementById("chat").onclick = showChatSample;
         }
         function showTextSample() {
             portal.src = "text/text.html";
         }
+        function showTextObjectSample() {
+            portal.src = "text/object.html";
+        }
         function showBinarySample() {
             portal.src = "binary/binary.html";
         }
-        function showTextObjectSample() {
-            portal.src = "text/object.html";
+        function showChatSample() {
+            portal.src = "chat/chat.html";
         }
     </script>
     <style>
@@ -34,6 +38,7 @@
         <button id="text">text</button>
         <button id="textObject">textObject</button>
         <button id="binary">binary</button>
+        <button id="chat">chat</button>
     </header>
     <iframe src="text/text.html" id="portal">
     </iframe>

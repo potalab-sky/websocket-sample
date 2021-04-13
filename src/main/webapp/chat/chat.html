@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Web Socket Example</title></head>
+    <body>
+        <form>
+            <p>
+                <span style="display:inline-block; width:70px; text-align: right">
+                    id:
+                </span> <input id="id" type="text">
+                <input id="connBtn" onclick="connect()" value="connect" type="button">
+                <input onclick="disconnect()" value="Disconnect" type="button">
+            </p>
+            <p>
+                <span style="display:inline-block; width:70px; text-align: right">
+                    message:
+                </span> <input id="textMessage" type="text">
+                <input onclick="sendMessage()" value="Send" type="button">
+            </p>
+        </form>
+        <br />
+        <textarea id="messageTextArea" rows="10" cols="50"></textarea>
+        <script type="text/javascript">
+            function connect() {
+                const id = document.getElementById("id").value;
+                webSocket = new WebSocket("ws://localhost:8080/chat/" + id);
+                const messageTextArea = document.getElementById("messageTextArea");
+                webSocket.onopen = function(message) {
+                    messageTextArea.value += "Server connect...\n";
+                };
+                webSocket.onclose = function(message) {
+                    messageTextArea.value += "Server Disconnect...\n";
+                    document.getElementById("id").disabled = false;
+                    document.getElementById("connBtn").disabled = false;
+                };
+                webSocket.onmessage = function(message) {
+                    messageTextArea.value += message.data+"\n";
+                };
+                document.getElementById("id").disabled = true;
+                document.getElementById("connBtn").disabled = true;
+            }
+            function sendMessage() {
+                const message = document.getElementById("textMessage");
+                webSocket.send(message.value);
+                message.value = "";
+            }
+            function disconnect() {
+                webSocket.close();
+            }
+        </script>
+    </body>
+</html>
