@@ -14,18 +14,19 @@
         <script type="text/javascript">
             var webSocket = new WebSocket("ws://localhost:8080/binary");
             var messageTextArea = document.getElementById("messageTextArea");
-            webSocket.onopen = function(message) {
+            webSocket.onopen = function() {
                 messageTextArea.value += "Server connect...\n";
             };
-            webSocket.onclose = function(message) {
+            webSocket.onclose = function() {
                 messageTextArea.value += "Server Disconnect...\n";
             };
             webSocket.onmessage = function(message) {
                 messageTextArea.value += "Recieve From Server => "+message.data+"\n";
             };
             function sendMessage() {
-                var input = document.createElement("input");
-                webSocket.send(Buffer.from(input.value));
+                // var fileInfo = document.getElementById("fileInfo");
+                // let buffer = new ArrayBuffer(fileInfo.value.length);
+                // webSocket.send(buffer.from(fileInfo.value));
                 webSocket.send(output.value);
             }
             function disconnect() {

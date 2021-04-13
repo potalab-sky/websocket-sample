@@ -5,13 +5,17 @@
         window.onload = function() {
             portal = document.getElementById("portal");
             document.getElementById("text").onclick = showTextSample;
+            document.getElementById("textObject").onclick = showTextObjectSample;
             document.getElementById("binary").onclick = showBinarySample;
         }
         function showTextSample() {
-            portal.src = "text/text.jsp";
+            portal.src = "text/text.html";
         }
         function showBinarySample() {
-            portal.src = "binary/binary.jsp";
+            portal.src = "binary/binary.html";
+        }
+        function showTextObjectSample() {
+            portal.src = "text/object.html";
         }
     </script>
     <style>
@@ -28,6 +32,7 @@
 <body>
     <header>
         <button id="text">text</button>
+        <button id="textObject">textObject</button>
         <button id="binary">binary</button>
     </header>
     <iframe src="text/text.html" id="portal">
